@@ -14,8 +14,8 @@
 
 <html>
 <head>
-	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css"/>
-	<script src="/scripts/main.js"></script>
+	<link type="text/css" rel="stylesheet" href="/css/main.css"/>
+	<script src="/js/main.js"></script>
 </head>
 
 <body>
