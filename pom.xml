@@ -31,6 +31,12 @@
             <version>1.9.18</version>
         </dependency>
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+	    <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>com.sun.jersey</groupId>
 	    <artifactId>jersey-bundle</artifactId>
 	    <version>${jersey.version}</version>

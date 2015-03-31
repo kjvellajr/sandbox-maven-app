@@ -12,13 +12,22 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link type="text/css" rel="stylesheet" href="/css/main.css"/>
+	<title>Guestbook</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/main.css"/>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Guestbook</h1>
 <%
     String guestbookName = request.getParameter("guestbookName");
     if (guestbookName == null) {
@@ -42,6 +51,8 @@
     }
 %>
 
+		</div>
+		<div class="col-sm-12">
 <%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
@@ -89,5 +100,7 @@
     <div><input type="submit" value="Switch Guestbook"/></div>
 </form>
 
+		</div>
+	</div>
 </body>
 </html>
