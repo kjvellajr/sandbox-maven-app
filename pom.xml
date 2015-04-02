@@ -11,12 +11,20 @@
     <properties>
         <appengine.app.version>1</appengine.app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<jersey.version>1.19</jersey.version>
+	<restlet.version>2.1.7</restlet.version>
     </properties>
 
     <prerequisites>
         <maven>3.1.0</maven>
     </prerequisites>
+
+    <repositories>
+	<repository>
+		<id>maven-restlet</id>
+		<name>Public online Restlet repository</name>
+		<url>http://maven.restlet.com</url>
+	</repository>
+    </repositories>
 
     <dependencies>
         <!-- Compile/runtime dependencies -->
@@ -36,21 +44,11 @@
             <version>2.3.1</version>
 	    <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-	    <artifactId>jersey-bundle</artifactId>
-	    <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-	    <artifactId>jersey-core</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-	    <artifactId>jersey-server</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
+	<dependency>
+	    <groupId>org.restlet.gae</groupId>
+            <artifactId>org.restlet</artifactId>
+      	    <version>${restlet.version}</version>
+	</dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
