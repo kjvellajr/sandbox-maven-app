@@ -26,7 +26,10 @@
 		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
 		<init-param>
 			<param-name>services</param-name>
-			<param-value>com.kjvellajr.sandbox.tester.HelloWorldAPI</param-value>
+			<param-value>
+				com.kjvellajr.sandbox.tester.HelloWorldAPI,
+				com.kjvellajr.sandbox.events.EventsAPI
+			</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
