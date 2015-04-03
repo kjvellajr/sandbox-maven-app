@@ -20,18 +20,17 @@
 	<welcome-file-list>
 		<welcome-file>guestbook.jsp</welcome-file>
 	</welcome-file-list>
-	<!--
+
 	<servlet>
-		<servlet-name>RestService</servlet-name>
-		<servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
 		<init-param>
-			<param-name>org.restlet.application</param-name>
-			<param-value>com.kjvellajr.sandbox.rest.SandboxApplication</param-value>
+			<param-name>services</param-name>
+			<param-value>com.kjvellajr.sandbox.tester.HelloWorldAPI</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RestService</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<servlet-name>SystemServiceServlet</servlet-name>
+		<url-pattern>/_ah/spi/*</url-pattern>
 	</servlet-mapping>
-	-->
 </web-app>
