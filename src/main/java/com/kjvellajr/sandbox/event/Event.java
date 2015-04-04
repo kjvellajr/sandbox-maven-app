@@ -1,0 +1,27 @@
+package com.kjvellajr.sandbox.event;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+public class Event {
+	
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	private Long id;
+
+	@Persistent
+	private String displayName;
+
+	public Long getId() {
+		return id;
+	}
+	public String getDisplayName() {
+		return displayName;
+	}
+	public void setDisplayName(String pDisplayName) {
+		displayName = pDisplayName;
+	}
+}

@@ -4,21 +4,9 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<servlet>
-		<servlet-name>sign</servlet-name>
-		<servlet-class>com.kjvellajr.sandbox.SignGuestbookServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>sign</servlet-name>
-		<url-pattern>/sign</url-pattern>
-	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>guestbook</servlet-name>
-		<servlet-class>com.kjvellajr.sandbox.GuestbookServlet</servlet-class>
-	</servlet>
 	<welcome-file-list>
-		<welcome-file>guestbook.jsp</welcome-file>
+		<welcome-file>myhistory.jsp</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -28,7 +16,7 @@
 			<param-name>services</param-name>
 			<param-value>
 				com.kjvellajr.sandbox.tester.HelloWorldAPI,
-				com.kjvellajr.sandbox.events.EventsAPI
+				com.kjvellajr.sandbox.events.EventAPI
 			</param-value>
 		</init-param>
 	</servlet>

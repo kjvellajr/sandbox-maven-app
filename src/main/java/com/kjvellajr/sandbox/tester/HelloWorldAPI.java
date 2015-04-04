@@ -9,7 +9,7 @@ import javax.inject.Named;
  * Resource to test RESTful api.
  * @author Ken Vella
  */
-@Api(name = "myApi", version = "v1", namespace = @ApiNamespace(
+@Api(name = "helloWorldApi", version = "v1", namespace = @ApiNamespace(
 			ownerDomain = "sandbox.kjvellajr.com",
 			ownerName = "sandbox.kjvellajr.com",
 			packagePath = ""))
