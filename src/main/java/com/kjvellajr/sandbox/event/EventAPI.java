@@ -1,4 +1,4 @@
-package com.kjvellajr.sandbox.events;
+package com.kjvellajr.sandbox.event;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -12,11 +12,11 @@ import javax.inject.Named;
  * Resource to test RESTful api.
  * @author Ken Vella
  */
-@Api(name = "eventsApi", version = "v1", namespace = @ApiNamespace(
+@Api(name = "eventApi", version = "v1", namespace = @ApiNamespace(
 			ownerDomain = "sandbox.kjvellajr.com",
 			ownerName = "sandbox.kjvellajr.com",
 			packagePath = ""))
-public class EventsAPI {
+public class EventAPI {
 	public class Events {
 		private Collection<Event> events;
 		public Events(Collection<Event> pEvents) {
