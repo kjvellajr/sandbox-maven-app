@@ -10,13 +10,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="/js/myhistory.js"></script>
+	<script src="/js/api.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script>
 </head>
 
 <body>
-	<div class="container">
-		<div class="jumbotron">
-			<h1>My History</h1>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#">My History</a>
+			<form class="navbar-form navbar-right">
+				<a href="javascript:void(0);" class="btn btn-default" id="signinButton">Sign in</a>
+			</form>
 		</div>
+	</nav>
+	<div class="container">
 		<div data-ng-controller="myhistoryCtrl as myhistory">
 			<div class="col-sm-4" data-ng-repeat="event in myhistory.events">
 				<h3>{{event.name}}</h3>
