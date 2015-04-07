@@ -19,10 +19,7 @@ import javax.jdo.Query;
  * Resource to test RESTful api.
  * @author Ken Vella
  */
-@Api(name = "eventApi", version = "v1", namespace = @ApiNamespace(
-			ownerDomain = "sandbox.kjvellajr.com",
-			ownerName = "sandbox.kjvellajr.com",
-			packagePath = ""))
+@Api(name = "eventApi", version = "v1", namespace = @ApiNamespace(ownerDomain = "sandbox.kjvellajr.com",ownerName = "sandbox.kjvellajr.com", packagePath = ""))
 public class EventAPI {
 	public class Events {
 		private Collection<Event> events;

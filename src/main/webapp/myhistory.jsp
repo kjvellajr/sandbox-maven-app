@@ -23,7 +23,7 @@
 			</form>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container main-content">
 		<div data-ng-controller="myhistoryCtrl as myhistory">
 			<div class="col-sm-4" data-ng-repeat="event in myhistory.events">
 				<h3>{{event.name}}</h3>
