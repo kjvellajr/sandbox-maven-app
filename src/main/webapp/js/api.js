@@ -6,6 +6,7 @@ function init() {
 		if (isTest()) {
 			alert("cannot log out of local host");
 		} else {
+			$("#signinName").html("");
 			$("#signinButton").removeClass("hidden");
 			$("#signoutButton").addClass("hidden");
 			gapi.auth.signOut();
@@ -39,7 +40,7 @@ function isTest() {
 }
 
 function signin(mode, authorizedCallback) {
-	gapi.auth.authorize({client_id: CLIENT_ID, scope: SCOPES, immediate: mode}, authorizedCallback);
+	gapi.auth.authorize({client_id: CLIENT_ID, scope: SCOPES, immediate: mode, cookie_policy: 'single_host_origin'}, authorizedCallback);
 }
 
 function userAuthed() {
