@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="/js/myhistory.js"></script>
 	<script src="/js/api.js"></script>
 	<script src="https://apis.google.com/js/client.js?onload=init"></script>
@@ -19,9 +19,9 @@
 		<div class="container">
 			<a class="navbar-brand" href="#">My History</a>
 			<form class="navbar-form navbar-right">
+				<div id="signinName"></div>
 				<a href="javascript:void(0);" class="btn btn-default" id="signinButton">Sign in</a>
-			</form>
-		</div>
+				<a href="javascript:void(0);" class="btn btn-default hidden" id="signoutButton">Sign out</a>
 	</nav>
 	<div class="container main-content">
 		<div data-ng-controller="myhistoryCtrl as myhistory">
