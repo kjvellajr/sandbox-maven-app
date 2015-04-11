@@ -1,4 +1,4 @@
-package com.kjvellajr.sandbox.model;
+package com.kjvellajr.sandbox.event;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;

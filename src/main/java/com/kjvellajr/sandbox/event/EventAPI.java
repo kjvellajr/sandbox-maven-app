@@ -7,7 +7,6 @@ import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.users.User;
 import com.kjvellajr.sandbox.api.Constants;
 import com.kjvellajr.sandbox.jdo.PMF;
-import com.kjvellajr.sandbox.model.Event;
 import java.lang.reflect.Array;
 import java.util.List;
 import java.util.ArrayList;
@@ -24,11 +23,7 @@ import javax.jdo.Query;
  */
 @Api(name = "event", version = "v1",
 	scopes = {Constants.EMAIL_SCOPE},
-	clientIds = {Constants.WEB_CLIENT_ID},
-	audiences = {Constants.WEB_CLIENT_ID},
-	namespace = @ApiNamespace(
-		ownerDomain = "sandbox.kjvellajr.com",
-		ownerName = "sandbox.kjvellajr.com", packagePath = ""))
+	clientIds = {Constants.WEB_CLIENT_ID, com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID})
 public class EventAPI {
 	public class Events {
 		private Collection<Event> events;
@@ -43,10 +38,8 @@ public class EventAPI {
 		}
 	}
 	@ApiMethod(name = "addEvent")
-	public Event addEvent(User pUser, @Named("displayName") String pDisplayName) throws Exception {
-		if (pUser == null)  {
-			throw new UnauthorizedException("unauthorized");
-		}
+	public Event addEvent(User pUser, @Named("displayName") String pDisplayName) throws UnauthorizedException {
+		if (pUser == null) throw new UnauthorizedException("User is not authorized.");
 		final Event e = new Event();
 		e.setDisplayName(pDisplayName);
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -58,10 +51,8 @@ public class EventAPI {
 		return e;
 	}
 	@ApiMethod(name = "deleteEvent")
-	public void deleteEvent(User pUser, @Named("id") Long pId) throws Exception {
-		if (pUser == null)  {
-			throw new UnauthorizedException("unauthorized");
-		}
+	public void deleteEvent(User pUser, @Named("id") Long pId) throws UnauthorizedException {
+		if (pUser == null) throw new UnauthorizedException("User is not authorized.");
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			Event e = pm.getObjectById(Event.class, pId);
@@ -72,10 +63,8 @@ public class EventAPI {
 	}
 	@SuppressWarnings("unchecked")
 	@ApiMethod(name = "getEvents")
-	public Events getEvents(User pUser) throws Exception {
-		if (pUser == null)  {
-			throw new UnauthorizedException("unauthorized");
-		}
+	public Events getEvents(User pUser) throws UnauthorizedException {
+		if (pUser == null) throw new UnauthorizedException("User is not authorized.");
 		final Collection<Event> events = new ArrayList<Event>();
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
 		final Query q = pm.newQuery(Event.class);

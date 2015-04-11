@@ -23,11 +23,7 @@ import javax.jdo.Query;
  */
 @Api(name = "feedback", version = "v1",
 	scopes = {Constants.EMAIL_SCOPE},
-	clientIds = {Constants.WEB_CLIENT_ID},
-	audiences = {Constants.WEB_CLIENT_ID},
-	namespace = @ApiNamespace(
-		ownerDomain = "sandbox.kjvellajr.com",
-		ownerName = "sandbox.kjvellajr.com", packagePath = ""))
+	clientIds = {Constants.WEB_CLIENT_ID, com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID})
 public class FeedbackAPI {
 	@ApiMethod(name = "addFeedback")
 	public Feedback addFeedback(User pUser, @Named("text") String pText) throws Exception {
