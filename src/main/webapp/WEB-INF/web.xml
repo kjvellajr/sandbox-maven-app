@@ -15,7 +15,8 @@
 			<param-name>services</param-name>
 			<param-value>
 				com.kjvellajr.sandbox.tester.HelloWorldAPI,
-				com.kjvellajr.sandbox.event.EventAPI
+				com.kjvellajr.sandbox.event.EventAPI,
+				com.kjvellajr.sandbox.feedback.FeedbackAPI
 			</param-value>
 		</init-param>
 	</servlet>

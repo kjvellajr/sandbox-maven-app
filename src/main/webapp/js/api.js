@@ -40,7 +40,9 @@ function isTest() {
 }
 
 function signin(mode, authorizedCallback) {
-	gapi.auth.authorize({client_id: CLIENT_ID, scope: SCOPES, immediate: mode, cookie_policy: 'single_host_origin'}, authorizedCallback);
+	gapi.auth.authorize(
+			{client_id: CLIENT_ID, scope: SCOPES, immediate: mode, cookie_policy: 'single_host_origin'},
+			authorizedCallback);
 }
 
 function userAuthed() {
