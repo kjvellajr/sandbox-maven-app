@@ -3,6 +3,7 @@ package com.kjvellajr.sandbox.event;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.users.User;
 import com.kjvellajr.sandbox.api.Constants;
 import com.kjvellajr.sandbox.jdo.PMF;
@@ -42,7 +43,10 @@ public class EventAPI {
 		}
 	}
 	@ApiMethod(name = "addEvent")
-	public Event addEvent(User pUser, @Named("displayName") String pDisplayName) {
+	public Event addEvent(User pUser, @Named("displayName") String pDisplayName) throws Exception {
+		if (pUser == null)  {
+			throw new UnauthorizedException("unauthorized");
+		}
 		final Event e = new Event();
 		e.setDisplayName(pDisplayName);
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -54,7 +58,10 @@ public class EventAPI {
 		return e;
 	}
 	@ApiMethod(name = "deleteEvent")
-	public void deleteEvent(@Named("id") Long pId) {
+	public void deleteEvent(User pUser, @Named("id") Long pId) throws Exception {
+		if (pUser == null)  {
+			throw new UnauthorizedException("unauthorized");
+		}
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			Event e = pm.getObjectById(Event.class, pId);
@@ -63,8 +70,12 @@ public class EventAPI {
 			pm.close();
 		}
 	}
+	@SuppressWarnings("unchecked")
 	@ApiMethod(name = "getEvents")
-	public Events getEvents() {
+	public Events getEvents(User pUser) throws Exception {
+		if (pUser == null)  {
+			throw new UnauthorizedException("unauthorized");
+		}
 		final Collection<Event> events = new ArrayList<Event>();
 		final PersistenceManager pm = PMF.get().getPersistenceManager();
 		final Query q = pm.newQuery(Event.class);

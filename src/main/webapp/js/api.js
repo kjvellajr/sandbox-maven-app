@@ -52,11 +52,3 @@ function userAuthed() {
 		}
 	});
 }
-
-function getEvents() {
-	gapi.client.event.getEvents().execute(
-		function(resp) {
-			console.log(resp);
-		}
-	);
-}
