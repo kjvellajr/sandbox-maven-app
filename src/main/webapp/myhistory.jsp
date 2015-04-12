@@ -24,24 +24,27 @@
 				<a href="javascript:void(0);" class="btn btn-default hidden" id="signoutButton">Sign out</a>
 	</nav>
 	<div class="container main-content">
-		<div data-ng-controller="myhistoryCtrl as myhistory">
-			<div class="col-sm-4" data-ng-repeat="event in myhistory.events">
+		<div data-ng-controller="MyhistoryController as myhistoryCtrl">
+			<div class="col-sm-4" data-ng-repeat="event in myhistoryCtrl.events">
 				<h3>{{event.name}}</h3>
 				{{event.lastTime | date:"MM/dd/yyyy @ h:mma"}}
-				<button data-ng-show="event.canAdd">Add</button>
-				<section data-ng-controller="panelCtrl as panel">
+				<div>
+					<button class="eventBtn" data-ng-show="event.canEdit">Edit</button>
+					<button class="eventBtn" data-ng-show="event.canAdd">Add</button>
+				</div>
+				<section data-ng-controller="PanelController as panelCtrl">
 					<ul class="nav nav-pills">
-						<li data-ng-class="{active: panel.isSelected(0)}">
-							<a href data-ng-click="panel.selectTab(0)">Details</a>
+						<li data-ng-class="{active: panelCtrl.isSelected(0)}">
+							<a href data-ng-click="panelCtrl.selectTab(0)">Settings</a>
 						</li>
-						<li data-ng-class="{active: panel.isSelected(1)}">
-							<a href data-ng-click="panel.selectTab(1)">History</a>
+						<li data-ng-class="{active: panelCtrl.isSelected(1)}">
+							<a href data-ng-click="panelCtrl.selectTab(1)">History</a>
 						</li>
 					</ul>
-					<div class="panel" data-ng-show="panel.isSelected(0)">
+					<div class="panelCtrl" data-ng-show="panelCtrl.isSelected(0)">
 						<h4>Details</h4>
 					</div>
-					<div class="panel" data-ng-show="panel.isSelected(1)">
+					<div class="panelCtrl" data-ng-show="panelCtrl.isSelected(1)">
 						<h4>History</h4>
 					</div>
 				</section>

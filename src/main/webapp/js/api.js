@@ -22,8 +22,6 @@ function init() {
 		}
 	};
 
-	apisToLoad = 2;
-
 	var ROOT;
 	if (isTest()) {
 		ROOT = "http://localhost:8080/_ah/api";
@@ -31,7 +29,10 @@ function init() {
 		ROOT = "https://symmetric-span-89521.appspot.com/_ah/api";
 	}
 
+	apisToLoad = 3;
+
 	gapi.client.load("event", "v1", loadCallback, ROOT);
+	gapi.client.load("feedback", "v1", loadCallback, ROOT);
 	gapi.client.load("oauth2", "v2", loadCallback);
 }
 

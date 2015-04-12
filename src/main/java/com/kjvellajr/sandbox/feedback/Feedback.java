@@ -1,6 +1,9 @@
 package com.kjvellajr.sandbox.feedback;
 
+import com.google.appengine.api.datastore.Key;
+import java.util.ArrayList;
 import java.util.List;
+import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PersistenceCapable;
@@ -11,18 +14,19 @@ public class Feedback {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long id;
+	private Key id;
 
 	@Persistent
 	private String ownerEmail;
 
-	@Persistent(mappedBy = "parent")
-	private List<FeedbackLine> feedbackLines;
+	@Persistent(mappedBy = "feedback")
+	@Element(dependent = "true")
+	private List<FeedbackLine> feedbackLines = new ArrayList<FeedbackLine>();
 
-	public Long getId() {
+	public Key getId() {
 		return id;
 	}
-	public void setId(Long pId) {
+	public void setId(Key pId) {
 		id = pId;
 	}
 	public String getOwnerEmail() {
@@ -34,7 +38,7 @@ public class Feedback {
 	public List<FeedbackLine> getFeedbackLines() {
 		return feedbackLines;
 	}
-	public void setFeedbackLine(List<FeedbackLine> pFeedbackLines) {
+	public void setFeedbackLines(List<FeedbackLine> pFeedbackLines) {
 		feedbackLines = pFeedbackLines;
 	}
 }
