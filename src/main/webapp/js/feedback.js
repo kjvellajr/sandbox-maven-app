@@ -1,15 +1,14 @@
 (function(){
 	var app = angular.module("feedback", []);
-	app.controller("FeedbackController", function() {
-		this.feedback = {};
+	app.controller("FeedbackController", function($scope) {
+		var feedback = this;
+		feedback.lines = {};
 
-		this.addFeedback = function() {
-			this.feedback = {};
+		$scope.addFeedback = function() {
+			gapi.client.feedback.addFeedback(this.feedback).execute(function(resp) {
+				console.log(resp);
+				$scope.$apply();
+			}
 		};
 	});
-	function getEvents() {
-		gapi.client.feedback.getFeedback().execute(function(resp) {
-			console.log(resp);
-		});
-	}
 })();
