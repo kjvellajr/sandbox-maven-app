@@ -15,23 +15,6 @@
 	</security-constraint>
 
 	<servlet>
-		<servlet-name>SystemServiceServlet</servlet-name>
-		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-		<init-param>
-			<param-name>services</param-name>
-			<param-value>
-				com.kjvellajr.sandbox.tester.HelloWorldAPI,
-				com.kjvellajr.sandbox.event.EventAPI,
-				com.kjvellajr.sandbox.feedback.FeedbackAPI
-			</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SystemServiceServlet</servlet-name>
-		<url-pattern>/_ah/spi/*</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<init-param>
@@ -44,13 +27,13 @@
 		-->
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>com.kjvellajr.sandbox.rest.Resources</param-value>
+			<param-value>com.kjvellajr.sandbox.api.Resources</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey REST Service</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
