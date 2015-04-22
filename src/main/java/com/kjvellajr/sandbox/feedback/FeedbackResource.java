@@ -1,8 +1,5 @@
 package com.kjvellajr.sandbox.feedback;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.kjvellajr.sandbox.jdo.PMF;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -45,13 +42,7 @@ public class FeedbackResource {
 			q.closeAll();
 			pm.close();
 		}
-		try {
-			ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-			String json = ow.writeValueAsString(feedback);
-			return Response.status(200).entity(json).build();
-		} catch (JsonProcessingException e) {
-			return Response.status(500).build();
-		}
+		return Response.status(200).entity(feedback).build();
 	}
 
 	@GET

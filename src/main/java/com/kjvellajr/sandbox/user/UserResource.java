@@ -1,8 +1,5 @@
 package com.kjvellajr.sandbox.user;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.kjvellajr.sandbox.jdo.PMF;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;

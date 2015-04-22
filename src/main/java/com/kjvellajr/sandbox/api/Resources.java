@@ -1,6 +1,7 @@
 package com.kjvellajr.sandbox.api;
 
 import com.kjvellajr.sandbox.feedback.FeedbackResource;
+import com.kjvellajr.sandbox.user.AuthorizationRequestFilter;
 import com.kjvellajr.sandbox.user.AuthResource;
 import com.kjvellajr.sandbox.user.UserResource;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ public class Resources extends Application {
 		s.add(AuthResource.class);
 		s.add(FeedbackResource.class);
 		s.add(UserResource.class);
+		s.add(AuthorizationRequestFilter.class);
 		return s;
 	}
 }
