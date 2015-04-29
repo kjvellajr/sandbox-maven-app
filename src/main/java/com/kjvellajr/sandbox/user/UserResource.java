@@ -65,6 +65,7 @@ public class UserResource {
 			qUser.closeAll();
 			pm.close();
 		}
+
 		return Response.status(200).build();
 	}
 
