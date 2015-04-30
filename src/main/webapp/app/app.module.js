@@ -13,7 +13,7 @@
          * Everybody has access to these.
          * We could place these under every feature area,
          * but this is easier to maintain.
-         */ 
+         */
         'app.core',
         'app.widgets',
 
@@ -22,7 +22,8 @@
          */
         'app.avengers',
         'app.dashboard',
-        'app.layout'
+        'app.layout',
+        'app.settings'
     ]);
 
 })();
