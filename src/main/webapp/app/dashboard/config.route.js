@@ -15,7 +15,7 @@
     function getRoutes() {
         return [
             {
-                url: '/',
+                url: '/dashboard',
                 config: {
                     templateUrl: 'app/dashboard/dashboard.html',
                     controller: 'Dashboard',

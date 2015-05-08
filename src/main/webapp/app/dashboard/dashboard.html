@@ -1,67 +1,28 @@
 ﻿<section id="dashboard-view" class="mainbar">
-    <section class="matter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="today-datas">
-                        <li class="blightblue">
-                            <div class="pull-left"><i class="fa fa-plane"></i></div>
-                            <div class="datas-text pull-right">
-                                <span class="bold">Stark Tower</span> New York, New York
-                            </div>
-                            <div class="clearfix"></div>
-                        </li>
-
-                        <li class="bblue">
-                            <div class="pull-left avenger-logo"></div>
-                            <div class="datas-text pull-right">
-                                <span class="bold">{{vm.avengerCount}}</span> Cast
-                            </div>
-                            <div class="clearfix"></div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="widget wblue">
-                        <div data-cc-widget-header title="Avengers Movie Cast"
-                             data-allow-collapse="true"></div>
-                        <div class="widget-content text-center text-info">
-                            <table class="table table-condensed table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Character</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr data-ng-repeat="a in vm.avengers">
-                                        <td>{{a.name}}</td>
-                                        <td>{{a.character}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="widget-foot">
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="widget wlightblue">
-                        <div data-cc-widget-header title="{{vm.news.title}}"
-                             data-allow-collapse="true"></div>
-                        <div class="widget-content text-center text-info">
-                            <small>{{vm.news.description}}</small>
-                        </div>
-                        <div class="widget-foot">
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="matter">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6" data-ng-repeat="event in vm.events">
+				<div class="blightblue">
+					<div class="pull-left"><i class="fa fa-square-o"></i></div>
+					<div class="datas-text pull-right">
+						<span class="bold">{{event.title}}</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sticky-footer navbar-fixed-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-4 col-xs-offset-4">
+					<div class="dashboard-menu navbar-inverse">
+						<i class="fa fa-trash-o"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 </section>

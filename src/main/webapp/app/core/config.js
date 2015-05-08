@@ -14,7 +14,7 @@
     }
 
     var config = {
-        appErrorPrefix: '[NG-Modular Error] ', //Configure the exceptionHandler decorator
+        appErrorPrefix: '[Event History Error] ', //Configure the exceptionHandler decorator
         appTitle: 'Event History',
         version: '1.0.0'
     };
@@ -34,7 +34,7 @@
 
         // Configure the common route provider
         routehelperConfigProvider.config.$routeProvider = $routeProvider;
-        routehelperConfigProvider.config.docTitle = 'NG-Modular: ';
+        routehelperConfigProvider.config.docTitle = 'Event History: ';
         var resolveAlways = { /* @ngInject */
             ready: function(dataservice) {
                 return dataservice.ready();
